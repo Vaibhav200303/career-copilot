@@ -10,3 +10,4 @@
 - password hashing
 - jwt token generation
 - login and providing jwt to client
+- jwt authentication
