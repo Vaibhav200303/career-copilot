@@ -9,3 +9,4 @@
 - User creation endpoint
 - password hashing
 - jwt token generation
+- login and providing jwt to client

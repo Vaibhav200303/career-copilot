@@ -3,6 +3,8 @@ from jose import jwt
 from datetime import datetime,timedelta,timezone
 from dotenv import load_dotenv
 import os
+from sqlalchemy.orm import Session
+from app.crud import get_user_by_email
 
 load_dotenv()
 
@@ -31,3 +33,13 @@ def create_access_token(data:dict)->str:
     expire=datetime.now(timezone.utc)+timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp":expire})
     return jwt.encode(to_encode,SECRET_KEY,algorithm=ALGORITHM)
+
+
+def authenticate_user(db:Session,email:str,password:str):
+    user=get_user_by_email(db,email)
+    if not user:
+        return None
+    if not verify_password(password,user.hashed_password):
+        return None
+    return user
+    
