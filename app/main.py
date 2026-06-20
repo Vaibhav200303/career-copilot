@@ -1,14 +1,17 @@
-from fastapi import FastAPI,Depends, HTTPException
+import uuid
+
+from fastapi import FastAPI,Depends, HTTPException,File,UploadFile
 from fastapi.security import OAuth2PasswordRequestForm
 from app.db import engine
 from sqlalchemy import text
 from app.schemas import UserResponse,UserCreate,Token,UserLogin
 from sqlalchemy.orm import Session
 from app.db import get_db
-from app.crud import create_user
+from app.crud import create_user,create_resume
 from app.auth import authenticate_user,create_access_token,get_current_user
 from app.auth import hash_password
 from app.models import User
+from pathlib import Path
 
 app=FastAPI(title="Career Copilot")
 
@@ -40,3 +43,28 @@ def login(form_data:OAuth2PasswordRequestForm=Depends(),db:Session=Depends(get_d
 @app.get("/me")
 def get_me(current_user:User=Depends(get_current_user)):
     return current_user
+
+
+UPLOAD_DIR=Path("uploads/resumes")
+UPLOAD_DIR.mkdir(parents=True,exist_ok=True)
+
+@app.post("/resumes")
+async def upload_resume(
+    db:Session=Depends(get_db),
+    file:UploadFile=File(...),
+    current_user:User=Depends(get_current_user)
+):
+    if file.content_type!="application/pdf":
+        raise HTTPException(status_code=400,detail="Only PDF files are allowed")
+    unique_filename=(f"{uuid.uuid4()}_{file.filename}")
+    file_path=UPLOAD_DIR/unique_filename
+    contents=await file.read()
+    with open(file_path,"wb") as buffer:
+        buffer.write(contents)
+    resume=create_resume(
+        db,current_user.id,unique_filename,str(file_path)
+    )
+    return {
+        "id":resume.id,
+        "filename":resume.file_name,
+    }

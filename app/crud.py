@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.schemas import UserCreate
-from app.models import User
+from app.models import User,Resume
 from fastapi import HTTPException
 from pydantic import EmailStr
 
@@ -19,3 +19,15 @@ def create_user(db:Session,user:dict):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+def create_resume(
+        db:Session,
+        user_id:int,
+        file_name:str,
+        file_path:str
+):
+    resume=Resume(user_id=user_id,file_name=file_name,file_path=file_path)
+    db.add(resume)
+    db.commit()
+    db.refresh(resume)
+    return resume

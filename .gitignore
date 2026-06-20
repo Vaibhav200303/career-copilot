@@ -3,3 +3,4 @@ __pycache__/
 patients.db
 *.py[cod]
 .env
+uploads/
