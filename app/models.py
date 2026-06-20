@@ -14,6 +14,10 @@ class User(Base):
         "Resume",
         back_populates="user"
     )
+    job_descriptions = relationship(
+        "JobDescription",
+        back_populates="user"
+    )
 
 class Resume(Base):
     __tablename__="resumes"
@@ -28,3 +32,12 @@ class Resume(Base):
         "User",
         back_populates="resumes"
     )
+
+class JobDescription(Base):
+    __tablename__="job_description"
+    id=Column(Integer,primary_key=True,index=True)
+    user_id=Column(Integer,ForeignKey("users.id"),nullable=False)
+    title=Column(String,nullable=False)
+    content=Column(Text,nullable=False)
+    created_at=Column(DateTime,default=datetime.utcnow,nullable=False)
+    user=relationship("User",back_populates="job_description")

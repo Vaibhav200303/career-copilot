@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.schemas import UserCreate
-from app.models import User,Resume
+from app.schemas import JobDescriptionCreate
+from app.models import User,Resume,JobDescription
 from fastapi import HTTPException
 from pydantic import EmailStr
 
@@ -32,3 +32,18 @@ def create_resume(
     db.commit()
     db.refresh(resume)
     return resume
+
+
+def create_job_description(
+        db:Session,
+        user_id:int,
+        job:JobDescriptionCreate
+):
+    job_description=JobDescription(
+        user_id=user_id,
+        **job.model_dump()
+    )
+    db.add(job_description)
+    db.commit()
+    db.refresh(job_description)
+    return job_description

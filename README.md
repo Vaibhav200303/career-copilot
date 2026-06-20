@@ -28,3 +28,10 @@
 - OCR fallback for scanned PDFs
 - Graceful handling of encrypted PDFs
 - Extracted text persistence
+
+### v0.4 – Job Description Management
+
+- Job description model
+- User-job relationships
+- Protected job description endpoint
+- Job description persistence

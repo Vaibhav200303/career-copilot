@@ -4,10 +4,10 @@ from fastapi import FastAPI,Depends, HTTPException,File,UploadFile
 from fastapi.security import OAuth2PasswordRequestForm
 from app.db import engine
 from sqlalchemy import text
-from app.schemas import UserResponse,UserCreate,Token,UserLogin
+from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse
 from sqlalchemy.orm import Session
 from app.db import get_db
-from app.crud import create_user,create_resume
+from app.crud import create_user,create_resume,create_job_description
 from app.auth import authenticate_user,create_access_token,get_current_user
 from app.auth import hash_password
 from app.models import User
@@ -70,3 +70,17 @@ async def upload_resume(
         "id":resume.id,
         "filename":resume.file_name,
     }
+
+
+@app.post("/job-description",response_model=JobDescriptionResponse,status_code=201)
+def create_job(
+    job:JobDescriptionCreate,
+    db:Session=Depends(get_db),
+    current_user:User=Depends(get_current_user)
+
+):
+    return create_job_description(
+        db=db,
+        user_id=current_user.id,
+        job=job
+    )
