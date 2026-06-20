@@ -12,6 +12,7 @@ from app.auth import authenticate_user,create_access_token,get_current_user
 from app.auth import hash_password
 from app.models import User
 from pathlib import Path
+from app.pdf_utils import extract_text_from_pdf
 
 app=FastAPI(title="Career Copilot")
 
@@ -61,8 +62,9 @@ async def upload_resume(
     contents=await file.read()
     with open(file_path,"wb") as buffer:
         buffer.write(contents)
+    extracted_text=extract_text_from_pdf(str(file_path))
     resume=create_resume(
-        db,current_user.id,unique_filename,str(file_path)
+        db,current_user.id,unique_filename,str(file_path),extracted_text
     )
     return {
         "id":resume.id,

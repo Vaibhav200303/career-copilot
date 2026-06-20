@@ -21,3 +21,10 @@
 - Local file storage
 - Resume metadata persistence
 - Resume ownership tracking
+
+### v0.3 – Resume Processing
+
+- PDF text extraction with pypdf
+- OCR fallback for scanned PDFs
+- Graceful handling of encrypted PDFs
+- Extracted text persistence
