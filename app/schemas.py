@@ -1,4 +1,5 @@
 from pydantic import BaseModel,EmailStr,ConfigDict
+from datetime import datetime
 
 class UserCreate(BaseModel):
     email:EmailStr
@@ -31,3 +32,25 @@ class SkillGapResponse(BaseModel):
     matched_skills:list[str]
     missing_skills:list[str]
     recommendations:list[str]
+
+class AnalysisResponse(BaseModel):
+    id: int
+    matched_skills: list[str]
+    missing_skills: list[str]
+    recommendations: list[str]
+
+    model_config = ConfigDict(
+        from_attributes=True
+    )
+
+
+
+class RoadmapWeek(BaseModel):
+    week: int
+    topics: list[str]
+    project: str
+    outcome: str
+
+
+class RoadmapResponse(BaseModel):
+    weeks: list[RoadmapWeek]

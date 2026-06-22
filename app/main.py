@@ -4,16 +4,17 @@ from fastapi import FastAPI,Depends, HTTPException,File,UploadFile
 from fastapi.security import OAuth2PasswordRequestForm
 from app.db import engine
 from sqlalchemy import text
-from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse,SkillGapResponse
+from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse,SkillGapResponse,RoadmapResponse ,AnalysisResponse   
 from sqlalchemy.orm import Session
 from app.db import get_db
-from app.crud import create_user,create_resume,create_job_description,get_resume_by_id,get_job_description_by_id
+from app.crud import create_user,create_resume,create_job_description,get_resume_by_id,get_job_description_by_id,create_analysis,get_analysis_by_id,create_roadmap
 from app.auth import authenticate_user,create_access_token,get_current_user
 from app.auth import hash_password
 from app.models import User
 from pathlib import Path
 from app.pdf_utils import extract_text_from_pdf
 from app.services.ai import analyze_skill_gap
+from app.services.roadmap import generate_learning_roadmap
 
 app=FastAPI(title="Career Copilot")
 
@@ -86,7 +87,7 @@ def create_job(
         job=job
     )
 
-@app.post("/analysis/{resume_id}/{job_id}",response_model=SkillGapResponse)
+@app.post("/analysis/{resume_id}/{job_id}",response_model=AnalysisResponse)
 def analyze_resume(
     resume_id:int,
     job_id:int,
@@ -116,4 +117,40 @@ def analyze_resume(
         resume_text=resume.extracted_text,
         job_description=job.content
     )
-    return SkillGapResponse(**analysis)
+    db_analysis = create_analysis(
+        db=db,
+        user_id=current_user.id,
+        resume_id=resume.id,
+        job_description_id=job.id,
+        analysis=analysis
+    )
+    return db_analysis
+
+@app.post("/roadmaps/{analysis_id}",response_model=RoadmapResponse,status_code=201)
+def generate_roadmap(
+    analysis_id:int,
+    db:Session=Depends(get_db),
+    current_user:User=Depends(get_current_user)
+):
+    analysis=get_analysis_by_id(db,analysis_id)
+    if not analysis:
+        raise HTTPException(
+            status_code=404,
+            detail="Analysis not found"
+        )
+
+    if analysis.user_id != current_user.id:
+        raise HTTPException(
+            status_code=403,
+            detail="Access denied"
+        )
+    roadmap_content = generate_learning_roadmap(
+        analysis.missing_skills
+    )
+    roadmap = create_roadmap(
+        db=db,
+        user_id=current_user.id,
+        analysis_id=analysis.id,
+        content=roadmap_content.model_dump()
+    )
+    return roadmap_content

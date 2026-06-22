@@ -42,3 +42,11 @@
 - Resume and job description comparison
 - AI-generated skill gap analysis
 - return structured skill gap analysis
+
+### v0.6 – Learning Roadmaps
+
+- Structured AI responses using JSON
+- Analysis results stored in PostgreSQL
+- Personalized 4-week learning roadmaps
+- Roadmaps stored as JSONB
+- Reuse existing analyses to reduce LLM calls

@@ -1,29 +1,58 @@
+import json
+
 from ollama import chat
 
-def generate_learning_response(
-        missing_skills:list[str]
-)->str:
-   
+from app.schemas import RoadmapResponse
+
+
+def generate_learning_roadmap(
+    missing_skills: list[str]
+) -> RoadmapResponse:
+
     prompt = f"""
-    Create a 4-week learning roadmap for these skills:
+    You are an experienced career mentor.
+
+    Create a practical 4-week learning roadmap for these skills:
 
     {", ".join(missing_skills)}
 
-    For each week include:
+    Return ONLY valid JSON.
 
-    - Topics to learn
-    - One project idea
-    - Expected outcome
+    Do not include markdown.
+    Do not include explanations.
+    Do not wrap the response in code blocks.
+
+    Use this exact schema:
+
+    {{
+      "weeks": [
+        {{
+          "week": 1,
+          "topics": [],
+          "project": "",
+          "outcome": ""
+        }}
+      ]
+    }}
     """
 
     response = chat(
         model="qwen3:8b",
         messages=[
             {
+                "role": "system",
+                "content": "You are a career mentor. Always respond with valid JSON only."
+            },
+            {
                 "role": "user",
                 "content": prompt
             }
-        ]
+        ],
+        format="json"
     )
 
-    return response["message"]["content"] 
+    roadmap = json.loads(
+        response["message"]["content"]
+    )
+
+    return RoadmapResponse(**roadmap)

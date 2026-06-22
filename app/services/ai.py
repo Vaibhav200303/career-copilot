@@ -1,27 +1,21 @@
 from ollama import chat
 import json
 
+
 def analyze_skill_gap(
     resume_text: str,
     job_description: str
-) -> str:
-    prompt = f"""
-    You are an AI career coach.
+) -> dict:
 
+    prompt = f"""
     Compare the resume and job description.
 
-    Return ONLY valid JSON.
-
-    Do not include markdown.
-    Do not include explanations.
-    Do not wrap the JSON in code blocks.
-
-    Use this exact format:
+    Return ONLY valid JSON using this exact schema:
 
     {{
-    "matched_skills": [],
-    "missing_skills": [],
-    "recommendations": []
+      "matched_skills": [],
+      "missing_skills": [],
+      "recommendations": []
     }}
 
     Resume:
@@ -35,11 +29,15 @@ def analyze_skill_gap(
         model="qwen3:8b",
         messages=[
             {
+                "role": "system",
+                "content": "You are an AI career coach. Respond only with valid JSON."
+            },
+            {
                 "role": "user",
                 "content": prompt
             }
-        ]
+        ],
+        format="json"
     )
 
-    content= response["message"]["content"]
-    return json.loads(content)
+    return json.loads(response["message"]["content"])
