@@ -4,10 +4,10 @@ from fastapi import FastAPI,Depends, HTTPException,File,UploadFile
 from fastapi.security import OAuth2PasswordRequestForm
 from app.db import engine
 from sqlalchemy import text
-from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse,SkillGapResponse,RoadmapResponse ,AnalysisResponse   
+from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse,SkillGapResponse,RoadmapResponse ,AnalysisResponse ,InterviewResponse  
 from sqlalchemy.orm import Session
 from app.db import get_db
-from app.crud import create_user,create_resume,create_job_description,get_resume_by_id,get_job_description_by_id,create_analysis,get_analysis_by_id,create_roadmap
+from app.crud import create_user,create_resume,create_job_description,get_resume_by_id,get_job_description_by_id,create_analysis,get_analysis_by_id,create_roadmap,create_interview
 from app.auth import authenticate_user,create_access_token,get_current_user
 from app.auth import hash_password
 from app.models import User
@@ -15,6 +15,7 @@ from pathlib import Path
 from app.pdf_utils import extract_text_from_pdf
 from app.services.ai import analyze_skill_gap
 from app.services.roadmap import generate_learning_roadmap
+from app.services.interview import generate_interview_questions
 
 app=FastAPI(title="Career Copilot")
 
@@ -154,3 +155,41 @@ def generate_roadmap(
         content=roadmap_content.model_dump()
     )
     return roadmap_content
+
+
+@app.post(
+    "/interviews/{analysis_id}",
+    response_model=InterviewResponse,
+    status_code=201
+)
+def generate_interview(
+    analysis_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    analysis = get_analysis_by_id(
+        db,
+        analysis_id
+    )
+    if not analysis:
+        raise HTTPException(
+            status_code=404,
+            detail="Analysis not found"
+        )
+
+    if analysis.user_id != current_user.id:
+        raise HTTPException(
+            status_code=403,
+            detail="Access denied"
+        )
+    interview = generate_interview_questions(
+        matched_skills=analysis.matched_skills,
+        missing_skills=analysis.missing_skills
+    )
+    create_interview(
+        db=db,
+        user_id=current_user.id,
+        analysis_id=analysis.id,
+        content=interview.model_dump()
+    )
+    return interview

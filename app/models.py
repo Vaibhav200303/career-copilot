@@ -48,6 +48,10 @@ class User(Base):
         "Roadmap",
         back_populates="user"
     )
+    interviews = relationship(
+        "Interview",
+        back_populates="user"
+    )
 
 
 class Resume(Base):
@@ -196,6 +200,10 @@ class Analysis(Base):
         "Roadmap",
         back_populates="analysis"
     )
+    interviews = relationship(
+        "Interview",
+        back_populates="analysis"
+    )
 
 
 
@@ -233,4 +241,42 @@ class Roadmap(Base):
     analysis = relationship(
         "Analysis",
         back_populates="roadmaps"
+    )
+
+class Interview(Base):
+    __tablename__ = "interviews"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False
+    )
+
+    analysis_id = Column(
+        Integer,
+        ForeignKey("analyses.id"),
+        nullable=False
+    )
+
+    content = Column(
+        JSONB,
+        nullable=False
+    )
+
+    created_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        nullable=False
+    )
+
+    user = relationship(
+        "User",
+        back_populates="interviews"
+    )
+
+    analysis = relationship(
+        "Analysis",
+        back_populates="interviews"
     )

@@ -50,3 +50,10 @@
 - Personalized 4-week learning roadmaps
 - Roadmaps stored as JSONB
 - Reuse existing analyses to reduce LLM calls
+
+### v0.7 – Mock Interviews
+
+- AI-generated interview questions
+- Questions tailored to skill gap analysis
+- Categorized by topic and difficulty
+- Interviews stored as JSONB

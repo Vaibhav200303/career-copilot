@@ -54,3 +54,13 @@ class RoadmapWeek(BaseModel):
 
 class RoadmapResponse(BaseModel):
     weeks: list[RoadmapWeek]
+
+
+class InterviewQuestion(BaseModel):
+    question: str
+    category: str
+    difficulty: str
+
+
+class InterviewResponse(BaseModel):
+    questions: list[InterviewQuestion]

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.schemas import JobDescriptionCreate
-from app.models import User,Resume,JobDescription,Analysis,Roadmap
+from app.models import User,Resume,JobDescription,Analysis,Roadmap,Interview
 from fastapi import HTTPException
 from pydantic import EmailStr
 
@@ -103,3 +103,22 @@ def create_roadmap(
     db.commit()
     db.refresh(roadmap)
     return roadmap
+
+
+def create_interview(
+    db: Session,
+    user_id: int,
+    analysis_id: int,
+    content: dict
+):
+    interview = Interview(
+        user_id=user_id,
+        analysis_id=analysis_id,
+        content=content
+    )
+
+    db.add(interview)
+    db.commit()
+    db.refresh(interview)
+
+    return interview
