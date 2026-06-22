@@ -41,3 +41,4 @@
 - Local LLM integration with Ollama
 - Resume and job description comparison
 - AI-generated skill gap analysis
+- return structured skill gap analysis

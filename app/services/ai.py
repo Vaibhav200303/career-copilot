@@ -1,5 +1,5 @@
 from ollama import chat
-
+import json
 
 def analyze_skill_gap(
     resume_text: str,
@@ -8,9 +8,15 @@ def analyze_skill_gap(
     prompt = f"""
     You are an AI career coach.
 
-    Compare the resume with the job description.
+    Compare the resume and job description.
 
-    Return your response in valid JSON with this exact structure:
+    Return ONLY valid JSON.
+
+    Do not include markdown.
+    Do not include explanations.
+    Do not wrap the JSON in code blocks.
+
+    Use this exact format:
 
     {{
     "matched_skills": [],
@@ -35,4 +41,5 @@ def analyze_skill_gap(
         ]
     )
 
-    return response["message"]["content"]
+    content= response["message"]["content"]
+    return json.loads(content)

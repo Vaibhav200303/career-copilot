@@ -18,6 +18,10 @@ class User(Base):
         "JobDescription",
         back_populates="user"
     )
+    roadmaps = relationship(
+        "Roadmap",
+        back_populates="user"
+    )
 
 class Resume(Base):
     __tablename__="resumes"
@@ -41,3 +45,14 @@ class JobDescription(Base):
     content=Column(Text,nullable=False)
     created_at=Column(DateTime,default=datetime.utcnow,nullable=False)
     user=relationship("User",back_populates="job_descriptions")
+
+class Roadmap(Base):
+    __tablename__="roadmaps"
+    id=Column(Integer,primary_key=True,index=True)
+    user_id=Column(Integer,ForeignKey("users.id"),nullable=False)
+    content=Column(Text,nullable=False)
+    created_at=Column(DateTime,default=datetime.utcnow)
+    user = relationship(
+        "User",
+        back_populates="roadmaps"
+    )

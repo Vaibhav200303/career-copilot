@@ -116,4 +116,4 @@ def analyze_resume(
         resume_text=resume.extracted_text,
         job_description=job.content
     )
-    return SkillGapResponse(analysis=analysis)
+    return SkillGapResponse(**analysis)
