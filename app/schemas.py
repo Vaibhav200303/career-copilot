@@ -26,3 +26,6 @@ class JobDescriptionResponse(BaseModel):
     title:str
     content:str
     model_config=ConfigDict(from_attributes=True)
+
+class SkillGapResponse(BaseModel):
+    analysis:str

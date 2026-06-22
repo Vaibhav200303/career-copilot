@@ -35,3 +35,9 @@
 - User-job relationships
 - Protected job description endpoint
 - Job description persistence
+
+### v0.5 – Skill Gap Analysis
+
+- Local LLM integration with Ollama
+- Resume and job description comparison
+- AI-generated skill gap analysis

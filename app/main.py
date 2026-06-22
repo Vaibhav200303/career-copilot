@@ -4,15 +4,16 @@ from fastapi import FastAPI,Depends, HTTPException,File,UploadFile
 from fastapi.security import OAuth2PasswordRequestForm
 from app.db import engine
 from sqlalchemy import text
-from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse
+from app.schemas import UserResponse,UserCreate,Token,UserLogin,JobDescriptionCreate,JobDescriptionResponse,SkillGapResponse
 from sqlalchemy.orm import Session
 from app.db import get_db
-from app.crud import create_user,create_resume,create_job_description
+from app.crud import create_user,create_resume,create_job_description,get_resume_by_id,get_job_description_by_id
 from app.auth import authenticate_user,create_access_token,get_current_user
 from app.auth import hash_password
 from app.models import User
 from pathlib import Path
 from app.pdf_utils import extract_text_from_pdf
+from app.services.ai import analyze_skill_gap
 
 app=FastAPI(title="Career Copilot")
 
@@ -84,3 +85,35 @@ def create_job(
         user_id=current_user.id,
         job=job
     )
+
+@app.post("/analysis/{resume_id}/{job_id}",response_model=SkillGapResponse)
+def analyze_resume(
+    resume_id:int,
+    job_id:int,
+    db:Session=Depends(get_db),
+    current_user : User=Depends(get_current_user)
+):
+    resume=get_resume_by_id(resume_id,db)
+    job=get_job_description_by_id(job_id,db)
+    if not resume:
+        raise HTTPException(
+            status_code=404,
+            detail="Resume not found"
+        )
+
+    if not job:
+        raise HTTPException(
+            status_code=404,
+            detail="Job description not found"
+        )
+    if resume.user_id!= current_user.id:
+        raise HTTPException(status_code=403,detail="Access denied")
+    
+    if job.user_id!=current_user.id:
+        raise HTTPException(status_code=403,detail="Access denied")
+    
+    analysis=analyze_skill_gap(
+        resume_text=resume.extracted_text,
+        job_description=job.content
+    )
+    return SkillGapResponse(analysis=analysis)

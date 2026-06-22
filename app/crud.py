@@ -47,3 +47,18 @@ def create_job_description(
     db.commit()
     db.refresh(job_description)
     return job_description
+
+
+def get_resume_by_id(
+        resume_id:int,
+        db:Session
+):
+    resume=db.query(Resume).filter(Resume.id==resume_id).first()
+    return resume
+
+def get_job_description_by_id(
+        job_id:int,
+        db:Session
+):
+    job=db.query(JobDescription).filter(JobDescription.id==job_id).first()
+    return job

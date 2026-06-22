@@ -40,4 +40,4 @@ class JobDescription(Base):
     title=Column(String,nullable=False)
     content=Column(Text,nullable=False)
     created_at=Column(DateTime,default=datetime.utcnow,nullable=False)
-    user=relationship("User",back_populates="job_description")
+    user=relationship("User",back_populates="job_descriptions")
