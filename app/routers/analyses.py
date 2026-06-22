@@ -11,6 +11,10 @@ from app.db import get_db
 from app.models import User
 from app.schemas import AnalysisResponse
 from app.services.ai import analyze_skill_gap
+from app.services.document_ingestion import ingest_document
+from app.services.formatters import (
+    format_analysis_for_ingestion,
+)
 
 router = APIRouter(
     prefix="/analysis",
@@ -68,5 +72,16 @@ def analyze_resume(
         job_description_id=job.id,
         analysis=analysis,
     )
-
+    analysis_text = format_analysis_for_ingestion(
+        matched_skills=db_analysis.matched_skills,
+        missing_skills=db_analysis.missing_skills,
+        recommendations=db_analysis.recommendations,
+    )
+    ingest_document(
+        db=db,
+        user_id=current_user.id,
+        source_type="analysis",
+        source_id=db_analysis.id,
+        content=analysis_text,
+    )
     return db_analysis

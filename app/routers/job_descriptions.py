@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-
+from app.services.document_ingestion import ingest_document
 from app.core import get_current_user
 from app.crud import create_job_description
 from app.db import get_db
@@ -26,8 +26,16 @@ def create_job(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    return create_job_description(
+    job_description = create_job_description(
         db=db,
         user_id=current_user.id,
         job=job,
     )
+    ingest_document(
+        db=db,
+        user_id=current_user.id,
+        source_type="job_description",
+        source_id=job_description.id,
+        content=job_description.content,
+    )
+    return job_description

@@ -9,6 +9,7 @@ from app.crud import create_resume
 from app.db import get_db
 from app.models import User
 from app.services.pdf import extract_text_from_pdf
+from app.services.document_ingestion import ingest_document
 
 router = APIRouter(
     prefix="/resumes",
@@ -48,6 +49,13 @@ async def upload_resume(
         unique_filename,
         str(file_path),
         extracted_text,
+    )
+    ingest_document(
+        db=db,
+        user_id=current_user.id,
+        source_type="resume",
+        source_id=resume.id,
+        content=resume.extracted_text,
     )
 
     return {

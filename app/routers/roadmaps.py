@@ -1,6 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-
+from app.services.document_ingestion import ingest_document
+from app.services.formatters import (
+    format_roadmap_for_ingestion,
+)
 from app.core import get_current_user
 from app.crud import (
     create_roadmap,
@@ -48,11 +51,20 @@ def generate_roadmap(
         analysis.missing_skills,
     )
 
-    create_roadmap(
+    roadmap=create_roadmap(
         db=db,
         user_id=current_user.id,
         analysis_id=analysis.id,
         content=roadmap_content.model_dump(),
     )
-
+    roadmap_text = format_roadmap_for_ingestion(
+        roadmap.content
+    )
+    ingest_document(
+        db=db,
+        user_id=current_user.id,
+        source_type="roadmap",
+        source_id=roadmap.id,
+        content=roadmap_text,
+    )
     return roadmap_content

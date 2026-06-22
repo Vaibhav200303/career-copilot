@@ -96,3 +96,18 @@
 - Document ingestion pipeline foundation
 
 ---
+
+## v1.0 – RAG Knowledge Base
+
+- Document CRUD layer
+- Generic document ingestion pipeline
+- Automatic chunking and embedding generation
+- Resume ingestion into vector database
+- Job Description ingestion into vector database
+- Analysis ingestion into vector database
+- Roadmap ingestion into vector database
+- Analysis and roadmap text formatting
+- Multi-source knowledge base architecture
+- User-scoped document storage
+- End-to-end ingestion validation
+- pgvector embedding verification (768 dimensions)

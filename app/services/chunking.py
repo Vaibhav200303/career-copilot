@@ -1,6 +1,6 @@
 def chunk_text(
     text: str,
-    chunk_size: int = 500
+    chunk_size: int = 300
 ) -> list[str]:
 
     words = text.split()
