@@ -121,3 +121,14 @@
 - Retrieval service layer
 - Retrieval testing endpoint
 - RAG context retrieval foundation
+
+## v1.2 – RAG Response Generation
+
+- RAG prompt construction layer
+- Context aggregation from retrieved documents
+- Integration with `qwen3:8b`
+- Context-aware career guidance generation
+- End-to-end RAG pipeline implementation
+- Retrieval + generation testing endpoint
+- Multi-source context utilization
+- Personalized AI career assistant foundation
