@@ -29,3 +29,8 @@ from .chat import (
     ChatRequest,
     ChatResponse,
 )
+from .note import (
+    NoteCreate,
+    NoteUpdate,
+    NoteResponse,
+)

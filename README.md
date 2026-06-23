@@ -152,3 +152,13 @@
 - Analysis-aware responses
 - Roadmap-aware responses
 - Personalized AI career assistant
+
+## v1.5 – Notes Knowledge Base
+
+- Notes model and CRUD APIs
+- User-owned notes
+- Automatic note ingestion into knowledge base
+- Automatic embedding generation for notes
+- Automatic re-indexing on note updates
+- Automatic vector cleanup on note deletion
+- Notes integrated into Career Copilot RAG

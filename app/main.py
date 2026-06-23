@@ -12,6 +12,7 @@ from app.routers import (
     test,
     documents
 )
+from app.routers import notes
 
 app = FastAPI(title="Career Copilot")
 
@@ -38,3 +39,4 @@ app.include_router(interviews.router)
 app.include_router(test.router)
 app.include_router(documents.router)
 app.include_router(copilot.router)
+app.include_router(notes.router)
