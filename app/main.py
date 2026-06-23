@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from sqlalchemy import text
-
+from app.routers import copilot
 from app.db import engine
 from app.routers import (
     analyses,
@@ -37,3 +37,4 @@ app.include_router(roadmaps.router)
 app.include_router(interviews.router)
 app.include_router(test.router)
 app.include_router(documents.router)
+app.include_router(copilot.router)

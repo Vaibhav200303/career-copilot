@@ -25,3 +25,7 @@ from .user import (
     UserLogin,
     UserResponse,
 )
+from .chat import (
+    ChatRequest,
+    ChatResponse,
+)

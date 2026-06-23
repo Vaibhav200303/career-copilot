@@ -141,3 +141,14 @@
 - User-scoped knowledge base rebuilding
 - Overlapping chunk support (300/50)
 - Knowledge base maintenance endpoint
+
+## v1.4 – Career Copilot Chat
+
+- Career Copilot chat endpoint
+- End-to-end Retrieval-Augmented Generation (RAG)
+- Context-aware career guidance
+- Resume-aware responses
+- Job-description-aware responses
+- Analysis-aware responses
+- Roadmap-aware responses
+- Personalized AI career assistant
