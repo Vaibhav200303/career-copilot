@@ -111,3 +111,13 @@
 - User-scoped document storage
 - End-to-end ingestion validation
 - pgvector embedding verification (768 dimensions)
+
+## v1.1 – Vector Retrieval Engine
+
+- Query embedding generation
+- Semantic similarity search with pgvector
+- User-scoped vector retrieval
+- Top-K document retrieval
+- Retrieval service layer
+- Retrieval testing endpoint
+- RAG context retrieval foundation

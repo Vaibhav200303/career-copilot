@@ -4,3 +4,4 @@ patients.db
 *.py[cod]
 .env
 uploads/
+app/routers/test.py

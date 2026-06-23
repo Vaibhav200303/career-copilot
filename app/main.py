@@ -9,6 +9,7 @@ from app.routers import (
     job_descriptions,
     resumes,
     roadmaps,
+    test
 )
 
 app = FastAPI(title="Career Copilot")
@@ -33,3 +34,4 @@ app.include_router(job_descriptions.router)
 app.include_router(analyses.router)
 app.include_router(roadmaps.router)
 app.include_router(interviews.router)
+app.include_router(test.router)
