@@ -37,7 +37,7 @@ def ingest_document(
             source_type=source_type,
             source_id=source_id,
             content=chunk,
-            embeddings=embedding,
+            embedding=embedding,
         )
 
     db.commit()

@@ -33,3 +33,15 @@ def get_resume_by_id(
         .filter(Resume.id == resume_id)
         .first()
     )
+
+def get_resumes_by_user(
+    db: Session,
+    user_id: int,
+):
+    return (
+        db.query(Resume)
+        .filter(
+            Resume.user_id == user_id
+        )
+        .all()
+    )

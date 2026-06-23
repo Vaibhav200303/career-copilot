@@ -30,3 +30,16 @@ def get_job_description_by_id(
         .filter(JobDescription.id == job_id)
         .first()
     )
+
+
+def get_job_descriptions_by_user(
+    db: Session,
+    user_id: int,
+):
+    return (
+        db.query(JobDescription)
+        .filter(
+            JobDescription.user_id == user_id
+        )
+        .all()
+    )

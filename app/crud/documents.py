@@ -7,14 +7,14 @@ def create_document(
         source_type:str,
         source_id:int,
         content:str,
-        embeddings:list[float]
+        embedding:list[float]
 )->Document:
     document=Document(
         user_id=user_id,
         source_type=source_type,
         source_id=source_id,
         content=content,
-        embedding=embeddings
+        embedding=embedding
     )
     db.add(document)
     return document

@@ -20,3 +20,15 @@ def create_roadmap(
     db.refresh(roadmap)
 
     return roadmap
+
+def get_roadmaps_by_user(
+    db: Session,
+    user_id: int,
+):
+    return (
+        db.query(Roadmap)
+        .filter(
+            Roadmap.user_id == user_id
+        )
+        .all()
+    )

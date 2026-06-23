@@ -132,3 +132,12 @@
 - Retrieval + generation testing endpoint
 - Multi-source context utilization
 - Personalized AI career assistant foundation
+
+## v1.3 – Knowledge Base Maintenance
+
+- Reindex service for document regeneration
+- Embedding regeneration support
+- Chunking strategy upgrades
+- User-scoped knowledge base rebuilding
+- Overlapping chunk support (300/50)
+- Knowledge base maintenance endpoint

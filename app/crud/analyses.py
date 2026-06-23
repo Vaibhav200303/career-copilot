@@ -35,3 +35,15 @@ def get_analysis_by_id(
         .filter(Analysis.id == analysis_id)
         .first()
     )
+
+def get_analyses_by_user(
+    db: Session,
+    user_id: int,
+):
+    return (
+        db.query(Analysis)
+        .filter(
+            Analysis.user_id == user_id
+        )
+        .all()
+    )
