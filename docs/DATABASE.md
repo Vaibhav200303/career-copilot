@@ -588,41 +588,20 @@ Every searchable resource generates one or more document chunks.
 ```mermaid
 flowchart LR
 
-Resume
+A[Resume]
+B["Job Description"]
+C[Analysis]
+D[Roadmap]
+E[Notes]
+F["Interview Experience"]
+G[Document]
 
--->
-
-Document
-
-Job Description
-
--->
-
-Document
-
-Analysis
-
--->
-
-Document
-
-Roadmap
-
--->
-
-Document
-
-Notes
-
--->
-
-Document
-
-Interview Experience
-
--->
-
-Document
+A --> G
+B --> G
+C --> G
+D --> G
+E --> G
+F --> G
 ```
 
 Each document references
@@ -773,67 +752,30 @@ The following diagram illustrates how information moves through the system.
 ```mermaid
 flowchart TD
 
-Resume
+A[Resume]
+B[Analysis]
+C[Roadmap]
+D[Interview]
+E["Interview Experience"]
+F[Notes]
+G[Documents]
+H[Retriever]
+I["Career Copilot"]
 
--->
+A --> B
+B --> C
+B --> D
 
-Analysis
+A --> G
+B --> G
+C --> G
+D --> G
+E --> G
+F --> G
 
-Analysis
-
--->
-
-Roadmap
-
-Analysis
-
--->
-
-Interview
-
-Resume
-
--->
-
-Documents
-
-Analysis
-
--->
-
-Documents
-
-Roadmap
-
--->
-
-Documents
-
-Interview Experience
-
--->
-
-Documents
-
-Notes
-
--->
-
-Documents
-
-Documents
-
--->
-
-Retriever
-
-Retriever
-
--->
-
-Career Copilot
+G --> H
+H --> I
 ```
-
 ---
 
 # Example User Journey
