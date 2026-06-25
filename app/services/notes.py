@@ -5,7 +5,8 @@ from app.services.document_ingestion import (
     ingest_document,
 )
 from app.crud.documents import delete_source_documents
-
+from app.models import Note
+from app.schemas import NoteUpdate
 def create_note_service(
     db: Session,
     user_id: int,
@@ -40,15 +41,13 @@ Content:
 
 def update_note_service(
     db: Session,
-    note,
-    title: str,
-    content: str,
+    note:Note,
+    note_data:dict
 ):
     updated_note = update_note(
         db=db,
         note=note,
-        title=title,
-        content=content,
+        update_data=note_data.model_dump(exclude_unset=True)
     )
 
     note_text = f"""

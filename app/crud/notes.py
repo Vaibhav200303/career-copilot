@@ -43,11 +43,14 @@ def get_notes_by_user(
 def update_note(
     db: Session,
     note: Note,
-    title: str,
-    content: str,
+    update_data: dict,
 ):
-    note.title = title
-    note.content = content
+    for field, value in update_data.items():
+        setattr(
+            note,
+            field,
+            value,
+        )
 
     db.commit()
     db.refresh(note)

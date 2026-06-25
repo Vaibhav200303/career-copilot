@@ -6,3 +6,6 @@ from .roadmap import Roadmap
 from .user import User
 from .document import Document
 from .note import Note
+from .interview_experience import InterviewExperience
+from .conversation import Conversation
+from .chat_message import ChatMessage

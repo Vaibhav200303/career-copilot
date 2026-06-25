@@ -162,3 +162,32 @@
 - Automatic re-indexing on note updates
 - Automatic vector cleanup on note deletion
 - Notes integrated into Career Copilot RAG
+
+## v1.6 – Interview Experience Knowledge Base
+
+* Interview Experience model and CRUD APIs
+* User-owned interview experience records
+* Company, role, outcome, and experience tracking
+* Structured interview question storage
+* Automatic ingestion into the vector knowledge base
+* Automatic embedding generation for interview experiences
+* Automatic re-indexing on interview updates
+* Automatic vector cleanup on interview deletion
+* Interview experiences integrated into Career Copilot RAG
+
+---
+
+## v1.7 – Persistent Career Copilot Conversations
+
+* Conversation model with user ownership
+* Chat message model with conversation relationships
+* Persistent multi-turn conversation memory
+* Automatic conversation creation
+* Conversation history retrieval
+* Conversation sidebar support
+* Conversation title generation from first message
+* User-scoped conversation isolation
+* Conversation CRUD APIs (list, retrieve, delete)
+* Chat message persistence with user/assistant roles
+* RAG enhanced with conversation history
+* Unified conversational AI experience combining memory and semantic retrieval

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from sqlalchemy import text
-from app.routers import copilot
+from app.routers import admin, copilot
 from app.db import engine
 from app.routers import (
     analyses,
@@ -9,11 +9,10 @@ from app.routers import (
     job_descriptions,
     resumes,
     roadmaps,
-    test,
-    documents
 )
 from app.routers import notes
-
+from app.routers import interview_experiences
+from app.routers import conversations
 app = FastAPI(title="Career Copilot")
 
 
@@ -36,7 +35,8 @@ app.include_router(job_descriptions.router)
 app.include_router(analyses.router)
 app.include_router(roadmaps.router)
 app.include_router(interviews.router)
-app.include_router(test.router)
-app.include_router(documents.router)
+app.include_router(admin.router)
 app.include_router(copilot.router)
 app.include_router(notes.router)
+app.include_router(interview_experiences.router)
+app.include_router(conversations.router)

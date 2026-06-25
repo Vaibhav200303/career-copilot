@@ -7,8 +7,8 @@ class NoteCreate(BaseModel):
     content: str
 
 class NoteUpdate(BaseModel):
-    title: str
-    content: str
+    title: str | None = None
+    content: str | None = None
 
 class NoteResponse(BaseModel):
     id: int

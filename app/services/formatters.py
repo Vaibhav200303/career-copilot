@@ -49,3 +49,33 @@ def format_roadmap_for_ingestion(
         sections.append("")
 
     return "\n".join(sections)
+
+
+
+def format_interview_experience_for_ingestion(
+    company: str,
+    role: str,
+    interview_type: str,
+    outcome: str,
+    questions_asked: list[str],
+    experience: str,
+    lessons_learned: str,
+) -> str:
+
+    sections = [
+        f"Company: {company}",
+        f"Role: {role}",
+        f"Interview Type: {interview_type}",
+        f"Outcome: {outcome}",
+        "",
+        "Questions Asked:",
+        "\n".join(questions_asked),
+        "",
+        "Experience:",
+        experience,
+        "",
+        "Lessons Learned:",
+        lessons_learned,
+    ]
+
+    return "\n".join(sections)

@@ -118,8 +118,7 @@ def update_note(
     return update_note_service(
         db=db,
         note=note,
-        title=note_data.title,
-        content=note_data.content,
+        note_data=note_data
     )
 
 @router.delete(
