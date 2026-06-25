@@ -567,15 +567,12 @@ Pipeline
 ```mermaid
 flowchart LR
 
-PDF
+A[PDF]
+B["Text Extraction"]
+C["Extracted Text"]
 
--->
-
-Text Extraction
-
--->
-
-Extracted Text
+A --> B
+B --> C
 ```
 
 Supported
