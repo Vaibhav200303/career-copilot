@@ -1,4 +1,5 @@
 from ollama import embeddings
+from app.core.config import settings
 
 
 def generate_embedding(
@@ -6,7 +7,7 @@ def generate_embedding(
 ) -> list[float]:
 
     response = embeddings(
-        model="nomic-embed-text",
+        model=settings.OLLAMA_EMBEDDING_MODEL,
         prompt=text
     )
 

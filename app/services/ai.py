@@ -1,5 +1,7 @@
 from ollama import chat
 import json
+from app.core.config import settings
+
 
 
 def analyze_skill_gap(
@@ -8,9 +10,22 @@ def analyze_skill_gap(
 ) -> dict:
 
     prompt = f"""
-    Compare the resume and job description.
+    You are an expert technical recruiter.
 
-    Return ONLY valid JSON using this exact schema:
+    Compare the resume with the job description.
+
+    Rules:
+
+    1. Every skill mentioned in the job description must appear in exactly one category:
+    - matched_skills
+    - missing_skills
+
+    2. Never leave missing_skills empty unless every required skill is present.
+
+    3. Generate 3-5 actionable recommendations based on missing skills.
+
+    Return ONLY valid JSON.
+
 
     {{
       "matched_skills": [],
@@ -24,9 +39,8 @@ def analyze_skill_gap(
     Job Description:
     {job_description}
     """
-
     response = chat(
-        model="qwen3:8b",
+        model=settings.OLLAMA_CHAT_MODEL,
         messages=[
             {
                 "role": "system",

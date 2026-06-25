@@ -3,6 +3,7 @@ import json
 from ollama import chat
 
 from app.schemas import InterviewResponse
+from app.core.config import settings
 
 
 def generate_interview_questions(
@@ -35,7 +36,7 @@ def generate_interview_questions(
     """
 
     response = chat(
-        model="qwen3:8b",
+        model=settings.OLLAMA_CHAT_MODEL,
         messages=[
             {
                 "role": "system",

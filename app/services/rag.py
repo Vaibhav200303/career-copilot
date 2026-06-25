@@ -1,5 +1,6 @@
 from ollama import chat
 from app.models import ChatMessage
+from app.core.config import settings
 def build_rag_prompt(
     chunks:list[str],
     question:str,
@@ -34,7 +35,7 @@ def generate_rag_response(
 
 )->str:
     response=chat(
-        model="qwen3:8b",
+        model=settings.OLLAMA_CHAT_MODEL,
         messages=[
             {
                 "role":"system",
