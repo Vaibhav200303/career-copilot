@@ -1205,27 +1205,18 @@ Each roadmap contains structured weekly learning goals that guide users toward b
 ```mermaid
 flowchart LR
 
-Analysis
+A[Analysis]
+B["Prompt Builder"]
+C[Ollama]
+D["Structured JSON"]
+E["Store Roadmap"]
+F["Knowledge Base"]
 
--->
-
-Prompt Builder
-
--->
-
-Ollama
-
--->
-
-Structured JSON
-
--->
-
-Store Roadmap
-
--->
-
-Knowledge Base
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
 ```
 
 ---
@@ -1382,27 +1373,18 @@ Questions are tailored to the user's current skills and target job.
 ```mermaid
 flowchart LR
 
-Analysis
+A[Analysis]
+B["Prompt Builder"]
+C[Ollama]
+D["Interview Questions"]
+E["Store Interview"]
+F["Knowledge Base"]
 
--->
-
-Prompt Builder
-
--->
-
-Ollama
-
--->
-
-Interview Questions
-
--->
-
-Store Interview
-
--->
-
-Knowledge Base
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
 ```
 
 ---
@@ -1534,33 +1516,42 @@ This architecture allows Career Copilot to answer questions using semantic simil
 ```mermaid
 flowchart LR
 
-Resume --> Chunking
+A[Resume]
+B["Job Description"]
+C[Analysis]
+D[Roadmap]
+E[Notes]
+F["Interview Experience"]
 
-JobDescription --> Chunking
+G[Chunking]
+H["Embedding Generation"]
+I[(pgvector)]
 
-Analysis --> Chunking
+J["User Question"]
+K["Query Embedding"]
+L["Similarity Search"]
+M["Relevant Chunks"]
+N["Prompt Builder"]
+O[Ollama]
+P[Response]
 
-Roadmap --> Chunking
+A --> G
+B --> G
+C --> G
+D --> G
+E --> G
+F --> G
 
-Notes --> Chunking
+G --> H
+H --> I
 
-InterviewExperience --> Chunking
-
-Chunking --> Embedding
-
-Embedding --> pgvector
-
-UserQuestion --> QueryEmbedding
-
-QueryEmbedding --> SimilaritySearch
-
-SimilaritySearch --> RelevantChunks
-
-RelevantChunks --> PromptBuilder
-
-PromptBuilder --> Ollama
-
-Ollama --> Response
+J --> K
+K --> L
+L --> I
+I --> M
+M --> N
+N --> O
+O --> P
 ```
 
 ---
@@ -1725,53 +1716,22 @@ Every conversation is persistent and user-specific.
 ```mermaid
 flowchart TD
 
-Question
+A["User Question"]
+B["Conversation History"]
+C[Retriever]
+D["Relevant Documents"]
+E["Prompt Builder"]
+F[Ollama]
+G["Assistant Response"]
+H["Save Conversation"]
 
--->
-
-Conversation History
-
-Question
-
--->
-
-Retriever
-
-Retriever
-
--->
-
-Relevant Documents
-
-Relevant Documents
-
--->
-
-Prompt Builder
-
-Conversation History
-
--->
-
-Prompt Builder
-
-Prompt Builder
-
--->
-
-Ollama
-
-Ollama
-
--->
-
-Assistant Response
-
-Assistant Response
-
--->
-
-Save Conversation
+A --> C
+B --> E
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
 ```
 
 ---
