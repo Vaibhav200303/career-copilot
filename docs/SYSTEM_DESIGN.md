@@ -49,43 +49,22 @@ Career Copilot follows a layered architecture.
 ```mermaid
 flowchart TD
 
-Client
+A[Client]
+B[FastAPI]
+C["Business Services"]
+D[(Database)]
+E["AI Services"]
+F["Knowledge Base"]
+G["Vector Search"]
+H[LLM]
 
--->
-
-FastAPI
-
--->
-
-Business Services
-
--->
-
-Database
-
-Business Services
-
--->
-
-AI Services
-
-Business Services
-
--->
-
-Knowledge Base
-
-Knowledge Base
-
--->
-
-Vector Search
-
-Vector Search
-
--->
-
-LLM
+A --> B
+B --> C
+C --> D
+C --> E
+C --> F
+F --> G
+G --> H
 ```
 
 Each layer has a clearly defined responsibility.
@@ -395,55 +374,26 @@ The following diagram summarizes how information moves through the platform.
 ```mermaid
 flowchart LR
 
-Resume
+A[Resume]
+B[Analysis]
+C[Roadmap]
+D[Interview]
+E[Notes]
+F["Interview Experience"]
+G["Knowledge Base"]
+H["Career Copilot"]
 
--->
+A --> B
+B --> C
+B --> D
 
-Analysis
+A --> G
+C --> G
+E --> G
+F --> G
 
-Analysis
-
--->
-
-Roadmap
-
-Analysis
-
--->
-
-Interview
-
-Resume
-
--->
-
-Knowledge Base
-
-Roadmap
-
--->
-
-Knowledge Base
-
-Notes
-
--->
-
-Knowledge Base
-
-Interview Experience
-
--->
-
-Knowledge Base
-
-Knowledge Base
-
--->
-
-Career Copilot
+G --> H
 ```
-
 ---
 
 # AI Design Philosophy
@@ -506,39 +456,20 @@ These components work together to produce accurate, context-aware responses.
 ```mermaid
 flowchart TD
 
-User
+A[User]
+B[FastAPI]
+C[Retriever]
+D["Knowledge Base"]
+E["Prompt Builder"]
+F[Ollama]
+G[Response]
 
--->
-
-FastAPI
-
--->
-
-Retriever
-
-Retriever
-
--->
-
-Knowledge Base
-
-Knowledge Base
-
--->
-
-Prompt Builder
-
-Prompt Builder
-
--->
-
-Ollama
-
-Ollama
-
--->
-
-Response
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
 ```
 
 ---
@@ -653,33 +584,21 @@ The workflow is illustrated below.
 ```mermaid
 flowchart LR
 
-Question
+A[Question]
+B["Query Embedding"]
+C["Similarity Search"]
+D["Relevant Chunks"]
+E["Prompt Builder"]
+F["Chat Model"]
+G[Answer]
 
--->
-
-Query Embedding
-
--->
-
-Similarity Search
-
--->
-
-Relevant Chunks
-
--->
-
-Prompt Builder
-
--->
-
-Chat Model
-
--->
-
-Answer
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
 ```
-
 ---
 
 # Retrieval Strategy
@@ -774,19 +693,14 @@ Current deployment
 ```mermaid
 flowchart LR
 
-Client
+A[Client]
+B[FastAPI]
+C[(PostgreSQL)]
+D[Ollama]
 
--->
-
-FastAPI
-
--->
-
-PostgreSQL
-
--->
-
-Ollama
+A --> B
+B --> C
+B --> D
 ```
 
 ---
@@ -798,29 +712,20 @@ Future deployments can introduce multiple API instances.
 ```mermaid
 flowchart TD
 
-Load Balancer
+A["Load Balancer"]
+B["API Instance 1"]
+C["API Instance 2"]
+D["API Instance 3"]
+E[(PostgreSQL)]
 
--->
+A --> B
+A --> C
+A --> D
 
-API Instance 1
-
-Load Balancer
-
--->
-
-API Instance 2
-
-Load Balancer
-
--->
-
-API Instance 3
-
-API Instance 1 --> PostgreSQL
-API Instance 2 --> PostgreSQL
-API Instance 3 --> PostgreSQL
+B --> E
+C --> E
+D --> E
 ```
-
 Benefits:
 
 * Increased throughput
