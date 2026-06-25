@@ -49,53 +49,24 @@ Career Copilot consists of five major layers.
 ```mermaid
 flowchart TD
 
-User
+A[User]
+B[FastAPI]
+C[Authentication]
+D["Business Services"]
+E[(PostgreSQL)]
+F["Knowledge Base"]
+G[(pgvector)]
+H[Ollama]
+I[Response]
 
--->
-
-FastAPI
-
-FastAPI
-
--->
-
-Authentication
-
-FastAPI
-
--->
-
-Business Services
-
-Business Services
-
--->
-
-PostgreSQL
-
-Business Services
-
--->
-
-Knowledge Base
-
-Knowledge Base
-
--->
-
-pgvector
-
-Business Services
-
--->
-
-Ollama
-
-Ollama
-
--->
-
-Response
+A --> B
+B --> C
+B --> D
+D --> E
+D --> F
+F --> G
+D --> H
+H --> I
 ```
 
 ---
@@ -430,29 +401,19 @@ Authentication is handled before any business logic is executed.
 ```mermaid
 flowchart LR
 
-Login
+A[Login]
+B["JWT Token"]
+C["Protected Endpoint"]
+D["Token Validation"]
+E["Current User"]
+F["Business Logic"]
 
--->
-
-JWT Token
-
--->
-
-Protected Endpoint
-
--->
-
-Token Validation
-
--->
-
-Current User
-
--->
-
-Business Logic
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
 ```
-
 If authentication fails, the request is rejected immediately with an HTTP 401 Unauthorized response.
 
 ---
@@ -633,19 +594,14 @@ Career Copilot automatically attempts OCR.
 ```mermaid
 flowchart LR
 
-PDF
+A[PDF]
+B["No Text Found"]
+C[OCR]
+D["Extracted Text"]
 
--->
-
-No Text Found
-
--->
-
-OCR
-
--->
-
-Extracted Text
+A --> B
+B --> C
+C --> D
 ```
 
 This allows scanned resumes to be processed successfully.
@@ -709,39 +665,22 @@ The output is structured JSON rather than free-form text.
 ```mermaid
 flowchart LR
 
-Resume
+A[Resume]
+B["Job Description"]
+C["Prompt Builder"]
+D[Ollama]
+E["JSON Parser"]
+F[Analysis]
+G[(Database)]
+H["Knowledge Base"]
 
--->
-
-Prompt Builder
-
-Job Description
-
--->
-
-Prompt Builder
-
-Prompt Builder
-
--->
-
-Ollama
-
--->
-
-JSON Parser
-
--->
-
-Analysis
-
--->
-
-Database
-
--->
-
-Knowledge Base
+A --> C
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
 ```
 
 ---
@@ -855,27 +794,18 @@ The Learning Roadmap converts the AI analysis into an actionable study plan.
 ```mermaid
 flowchart LR
 
-Analysis
+A[Analysis]
+B["Roadmap Prompt"]
+C[Ollama]
+D["Roadmap JSON"]
+E[(Database)]
+F["Knowledge Base"]
 
--->
-
-Roadmap Prompt
-
--->
-
-Ollama
-
--->
-
-Roadmap JSON
-
--->
-
-Database
-
--->
-
-Knowledge Base
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
 ```
 
 ---
@@ -955,25 +885,17 @@ Career Copilot creates questions specifically targeting missing skills.
 ```mermaid
 flowchart LR
 
-Analysis
+A[Analysis]
+B["Prompt Builder"]
+C[Ollama]
+D["Interview Questions"]
+E[(Database)]
 
--->
-
-Prompt Builder
-
--->
-
-Ollama
-
--->
-
-Interview Questions
-
--->
-
-Database
+A --> B
+B --> C
+C --> D
+D --> E
 ```
-
 ---
 
 # Generated Information
@@ -1035,51 +957,23 @@ and allows future retrieval.
 ---
 
 # AI Workflow Summary
-
 ```mermaid
 flowchart TD
 
-Resume
+A[Resume]
+B[Analysis]
+C[Roadmap]
+D[Interview]
+E["Knowledge Base"]
+F["Career Copilot"]
 
--->
-
-Analysis
-
-Analysis
-
--->
-
-Roadmap
-
-Analysis
-
--->
-
-Interview
-
-Roadmap
-
--->
-
-Knowledge Base
-
-Interview
-
--->
-
-Knowledge Base
-
-Analysis
-
--->
-
-Knowledge Base
-
-Knowledge Base
-
--->
-
-Career Copilot
+A --> B
+B --> C
+B --> D
+B --> E
+C --> E
+D --> E
+E --> F
 ```
 
 ---
@@ -1163,59 +1057,28 @@ Every source contributes to the overall understanding of the user.
 ```mermaid
 flowchart TD
 
-Resume
+A[Resume]
+B["Job Description"]
+C[Analysis]
+D[Roadmap]
+E[Notes]
+F["Interview Experience"]
 
--->
+G[Documents]
+H[Chunking]
+I["Embedding Generation"]
+J[(pgvector)]
 
-Documents
+A --> G
+B --> G
+C --> G
+D --> G
+E --> G
+F --> G
 
-Job Description
-
--->
-
-Documents
-
-Analysis
-
--->
-
-Documents
-
-Roadmap
-
--->
-
-Documents
-
-Notes
-
--->
-
-Documents
-
-Interview Experience
-
--->
-
-Documents
-
-Documents
-
--->
-
-Chunking
-
-Chunking
-
--->
-
-Embeddings
-
-Embeddings
-
--->
-
-pgvector
+G --> H
+H --> I
+I --> J
 ```
 
 ---
@@ -1318,19 +1181,14 @@ Running locally through Ollama.
 ```mermaid
 flowchart LR
 
-Chunk
+A[Chunk]
+B["Embedding Model"]
+C["768-Dimensional Vector"]
+D[(pgvector)]
 
--->
-
-Embedding Model
-
--->
-
-768-Dimensional Vector
-
--->
-
-pgvector
+A --> B
+B --> C
+C --> D
 ```
 
 Each chunk becomes a mathematical representation of its meaning.
@@ -1388,23 +1246,16 @@ Career Copilot executes the following pipeline.
 ```mermaid
 flowchart LR
 
-User Question
+A["User Question"]
+B["Query Embedding"]
+C["Vector Search"]
+D["Relevant Chunks"]
+E["Prompt Builder"]
 
--->
-
-Embedding
-
--->
-
-Vector Search
-
--->
-
-Relevant Chunks
-
--->
-
-Prompt Builder
+A --> B
+B --> C
+C --> D
+D --> E
 ```
 
 ---
@@ -1472,41 +1323,20 @@ The complete RAG workflow.
 ```mermaid
 flowchart TD
 
-Question
+A["User Question"]
+B["Query Embedding"]
+C["Vector Search"]
+D["Relevant Chunks"]
+E["Prompt Builder"]
+F[Ollama]
+G[Response]
 
--->
-
-Embedding
-
-Embedding
-
--->
-
-Vector Search
-
-Vector Search
-
--->
-
-Relevant Chunks
-
-Relevant Chunks
-
--->
-
-Prompt Builder
-
-Prompt Builder
-
--->
-
-Ollama
-
-Ollama
-
--->
-
-Response
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
 ```
 
 ---
@@ -1948,19 +1778,14 @@ Career Copilot follows a layered architecture.
 ```mermaid
 flowchart TD
 
-Router
+A[Router]
+B[Service]
+C[CRUD]
+D[(Database)]
 
--->
-
-Service
-
--->
-
-CRUD
-
--->
-
-Database
+A --> B
+B --> C
+C --> D
 ```
 
 ---
@@ -2108,55 +1933,44 @@ Current architecture
 ```mermaid
 flowchart LR
 
-User
+A[User]
+B[FastAPI]
+C[(PostgreSQL)]
+D[Ollama]
 
--->
-
-FastAPI
-
--->
-
-PostgreSQL
-
--->
-
-Ollama
+A --> B
+B --> C
+B --> D
 ```
-
 Future architecture
 
 ```mermaid
 flowchart TD
 
-LoadBalancer
+A["Load Balancer"]
+B["FastAPI Instance 1"]
+C["FastAPI Instance 2"]
+D["FastAPI Instance 3"]
+E[(PostgreSQL)]
+F[(Redis)]
+G[Ollama]
 
--->
+A --> B
+A --> C
+A --> D
 
-FastAPI1
+B --> E
+C --> E
+D --> E
 
-LoadBalancer
+B --> F
+C --> F
+D --> F
 
--->
-
-FastAPI2
-
-LoadBalancer
-
--->
-
-FastAPI3
-
-FastAPI1 --> PostgreSQL
-
-FastAPI2 --> PostgreSQL
-
-FastAPI3 --> PostgreSQL
-
-PostgreSQL --> Redis
-
-Redis --> Ollama
+B --> G
+C --> G
+D --> G
 ```
-
 ---
 
 # Potential Optimizations
