@@ -1,4 +1,4 @@
-# 🗄️ Database Design
+# Database Design
 
 Career Copilot uses **PostgreSQL** as its primary relational database and **pgvector** for semantic vector search.
 
@@ -10,7 +10,7 @@ The database is designed around three core principles:
 
 ---
 
-# 📑 Table of Contents
+# Table of Contents
 
 * Database Overview
 * Why PostgreSQL?
@@ -25,7 +25,7 @@ The database is designed around three core principles:
 
 ---
 
-# 🏛 Database Overview
+# Database Overview
 
 Career Copilot stores two types of information:
 
@@ -614,7 +614,7 @@ This abstraction keeps retrieval generic.
 
 ---
 
-# 🔍 Indexing Strategy
+#Indexing Strategy
 
 Career Copilot uses database indexes to improve query performance.
 
@@ -745,7 +745,7 @@ This guarantees database consistency.
 
 ---
 
-# 📈 Data Lifecycle
+# Data Lifecycle
 
 The following diagram illustrates how information moves through the system.
 
