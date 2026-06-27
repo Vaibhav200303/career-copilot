@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Career Copilot
+# Career Copilot
 
 ### **From Resume to Offer — Powered by AI**
 
@@ -20,7 +20,7 @@ An AI-powered Career Intelligence Backend built with **FastAPI**, **PostgreSQL**
 
 ---
 
-# 📖 Table of Contents
+#  Table of Contents
 
 * [Overview](#-overview)
 * [Problem Statement](#-problem-statement)
@@ -38,7 +38,7 @@ An AI-powered Career Intelligence Backend built with **FastAPI**, **PostgreSQL**
 
 ---
 
-# 📖 Overview
+#  Overview
 
 Career Copilot is an AI-powered Career Intelligence Backend designed to simplify and personalize the software engineering interview preparation journey.
 
@@ -50,7 +50,7 @@ Career Copilot acts as an intelligent backend service capable of powering career
 
 ---
 
-# ❗ Problem Statement
+#  Problem Statement
 
 Preparing for software engineering roles often requires using multiple disconnected tools.
 
@@ -69,7 +69,7 @@ This fragmented workflow makes interview preparation inefficient and difficult t
 
 ---
 
-# 💡 Solution
+# Solution
 
 Career Copilot unifies the entire preparation process into a single AI-powered backend.
 
@@ -89,9 +89,9 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-# ✨ Key Features
+# Key Features
 
-## 🔐 Authentication
+## Authentication
 
 * JWT Authentication
 * Secure password hashing using bcrypt
@@ -100,7 +100,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 📄 Resume Management
+## Resume Management
 
 * PDF resume upload
 * Automatic text extraction
@@ -110,7 +110,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 💼 Job Description Management
+## Job Description Management
 
 * Store target job descriptions
 * User-specific job listings
@@ -118,7 +118,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 🤖 AI Resume Analysis
+##  AI Resume Analysis
 
 * Resume vs Job Description comparison
 * Matched skills detection
@@ -128,7 +128,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 📚 Learning Roadmaps
+## Learning Roadmaps
 
 * AI-generated personalized roadmaps
 * Four-week learning plans
@@ -137,7 +137,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 🎯 AI Mock Interviews
+##  AI Mock Interviews
 
 * Personalized interview questions
 * Difficulty-aware questions
@@ -146,7 +146,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 🧠 Retrieval-Augmented Generation (RAG)
+##  Retrieval-Augmented Generation (RAG)
 
 * Automatic document ingestion
 * Intelligent chunking
@@ -156,7 +156,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 📝 Notes Knowledge Base
+## Notes Knowledge Base
 
 * Personal notes
 * CRUD operations
@@ -165,7 +165,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 💬 Interview Experience Tracker
+##  Interview Experience Tracker
 
 * Company-wise interview history
 * Questions asked
@@ -175,7 +175,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 🤖 Career Copilot
+##  Career Copilot
 
 * AI-powered career assistant
 * Resume-aware responses
@@ -186,7 +186,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## 🧠 Conversation Memory
+##  Conversation Memory
 
 * Persistent conversations
 * Conversation titles
@@ -195,7 +195,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-## ⚡ Vector Database
+##  Vector Database
 
 * pgvector integration
 * Embedding generation
@@ -205,7 +205,7 @@ By combining structured data with Retrieval-Augmented Generation (RAG), Career C
 
 ---
 
-# 🏗 Architecture
+#  Architecture
 
 > Detailed architecture documentation is available in **docs/ARCHITECTURE.md**
 
@@ -243,7 +243,7 @@ K --> A
 
 ---
 
-# 🛠 Technology Stack
+# Technology Stack
 
 | Category         | Technologies              |
 | ---------------- | ------------------------- |
@@ -261,7 +261,7 @@ K --> A
 
 ---
 
-# ⚡ Quick Start
+#  Quick Start
 
 ```bash
 git clone https://github.com/<your-username>/career-copilot.git
@@ -298,7 +298,7 @@ to access the interactive Swagger UI.
 
 ---
 
-# 📚 Documentation
+#  Documentation
 
 | Document              | Description                       |
 | --------------------- | --------------------------------- |
@@ -313,7 +313,7 @@ to access the interactive Swagger UI.
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```text
 career-copilot/
@@ -339,7 +339,7 @@ career-copilot/
 
 ---
 
-# 📈 Development Timeline
+# Development Timeline
 
 The project was developed incrementally using versioned milestones.
 
@@ -362,7 +362,7 @@ The complete development history is available in **docs/ROADMAP.md**.
 
 ---
 
-# 🚀 Roadmap
+# Roadmap
 
 Upcoming improvements include:
 
@@ -379,7 +379,7 @@ Upcoming improvements include:
 
 ---
 
-# 🤝 Contributing
+#  Contributing
 
 Contributions are welcome.
 
@@ -387,7 +387,7 @@ Please read **CONTRIBUTING.md** before opening an issue or submitting a pull req
 
 ---
 
-# 📄 License
+#  License
 
 This project is licensed under the MIT License.
 
