@@ -1,4 +1,4 @@
-# 🌐 API Documentation
+#  API Documentation
 
 Career Copilot exposes a RESTful API built with **FastAPI**. Every endpoint is documented using **OpenAPI (Swagger UI)** and follows a consistent request and response structure.
 
@@ -22,7 +22,7 @@ http://127.0.0.1:8000/openapi.json
 
 ---
 
-# 📚 Table of Contents
+# Table of Contents
 
 * Authentication
 * Resume Management
@@ -39,7 +39,7 @@ http://127.0.0.1:8000/openapi.json
 
 ---
 
-# 🔐 Authentication
+#  Authentication
 
 Authentication is handled using **JWT (JSON Web Tokens)**.
 
@@ -369,17 +369,17 @@ API-->>User:Protected Resource
 
 Career Copilot follows modern authentication practices.
 
-✅ Password hashing using bcrypt
+Password hashing using bcrypt
 
-✅ JWT authentication
+JWT authentication
 
-✅ Protected API endpoints
+Protected API endpoints
 
-✅ Token expiration
+Token expiration
 
-✅ User-specific resource isolation
+User-specific resource isolation
 
-✅ Password never stored in plain text
+Password never stored in plain text
 
 ---
 
@@ -732,7 +732,7 @@ Ready for Analysis
 
 ---
 
-# 💼 Job Description Management
+#  Job Description Management
 
 Career Copilot allows users to store target job descriptions.
 
@@ -932,10 +932,10 @@ All downstream intelligence—including resume analysis, personalized learning r
 
 ---
 
-➡️ Next: **Resume Analysis & Skill Gap Detection**
+Next: **Resume Analysis & Skill Gap Detection**
 ---
 
-# 🤖 Resume Analysis & Skill Gap Detection
+# Resume Analysis & Skill Gap Detection
 
 The Resume Analysis module compares a user's uploaded resume against a selected job description using a Large Language Model (LLM).
 
@@ -1192,7 +1192,7 @@ Knowledge Base Updated
 
 ---
 
-# 📚 Learning Roadmaps
+#  Learning Roadmaps
 
 Learning Roadmaps transform the generated skill-gap analysis into a personalized learning plan.
 
@@ -1360,7 +1360,7 @@ Career Copilot
 
 ---
 
-# 🎯 Mock Interviews
+# Mock Interviews
 
 Career Copilot generates personalized interview questions using the previously generated skill-gap analysis.
 
@@ -1487,10 +1487,10 @@ The generated outputs are persisted and indexed into the knowledge base, allowin
 
 ---
 
-➡️ Next: **Knowledge Base, Vector Search & Career Copilot APIs**
+ Next: **Knowledge Base, Vector Search & Career Copilot APIs**
 ---
 
-# 🧠 Knowledge Base
+# Knowledge Base
 
 The Knowledge Base is the intelligence layer of Career Copilot.
 
@@ -1692,12 +1692,12 @@ Career Copilot currently indexes the following resources.
 
 | Source                | Indexed |
 | --------------------- | ------- |
-| Resume                | ✅       |
-| Job Description       | ✅       |
-| Analysis              | ✅       |
-| Roadmap               | ✅       |
-| Notes                 | ✅       |
-| Interview Experiences | ✅       |
+| Resume                |Done     |
+| Job Description       |Done     |
+| Analysis              |Done     |
+| Roadmap               |Done     |
+| Notes                 |Done     |
+| Interview Experiences |Done     |
 
 ---
 
@@ -2014,12 +2014,10 @@ The Knowledge Base and Career Copilot together transform Career Copilot from a c
 
 Rather than generating generic answers, the assistant retrieves semantically relevant information from the user's own career data before generating responses, providing highly personalized guidance.
 
+
 ---
 
-➡️ Next: **Notes, Interview Experiences, Conversations & Error Responses**
----
-
-# 📝 Notes API
+#  Notes API
 
 The Notes module allows users to store personal learning notes that become part of their AI knowledge base.
 
@@ -2312,7 +2310,7 @@ Example questions:
 
 ---
 
-# 💼 Interview Experience API
+#  Interview Experience API
 
 Interview Experiences allow users to maintain a personal history of interviews.
 
@@ -2509,7 +2507,7 @@ Career Copilot retrieves interview experiences to answer questions such as
 
 ---
 
-# 💬 Conversation API
+#  Conversation API
 
 Career Copilot stores every conversation.
 
@@ -2655,7 +2653,7 @@ Cascade deletion removes every associated message.
 
 ---
 
-# 🔒 Authentication Errors
+#  Authentication Errors
 
 ```json
 {
@@ -2665,7 +2663,7 @@ Cascade deletion removes every associated message.
 
 ---
 
-# 📄 Validation Error
+#  Validation Error
 
 ```json
 {
@@ -2680,7 +2678,7 @@ Cascade deletion removes every associated message.
 
 ---
 
-# 🧠 AI Generation Error
+#  AI Generation Error
 
 ```json
 {
@@ -2690,7 +2688,7 @@ Cascade deletion removes every associated message.
 
 ---
 
-# 📖 API Summary
+#  API Summary
 
 Career Copilot currently exposes endpoints across the following domains.
 
@@ -2710,7 +2708,7 @@ Career Copilot currently exposes endpoints across the following domains.
 
 ---
 
-# 🎉 Conclusion
+# Conclusion
 
 Career Copilot exposes a modular REST API designed around clean architecture principles.
 
