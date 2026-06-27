@@ -1,10 +1,10 @@
-# 🛠 Setup Guide
+# Setup Guide
 
 This guide walks you through setting up **Career Copilot** on your local machine from scratch.
 
 ---
 
-# 📑 Table of Contents
+#  Table of Contents
 
 * System Requirements
 * Clone Repository
@@ -23,7 +23,7 @@ This guide walks you through setting up **Career Copilot** on your local machine
 
 ---
 
-# 💻 System Requirements
+#  System Requirements
 
 Before starting, ensure the following software is installed.
 
@@ -37,7 +37,7 @@ Before starting, ensure the following software is installed.
 
 ---
 
-# 📥 Clone Repository
+#  Clone Repository
 
 ```bash
 git clone https://github.com/<your-username>/career-copilot.git
@@ -47,7 +47,7 @@ cd career-copilot
 
 ---
 
-# 🐍 Create Virtual Environment
+#  Create Virtual Environment
 
 ## Windows
 
@@ -69,7 +69,7 @@ source .venv/bin/activate
 
 ---
 
-# 📦 Install Python Dependencies
+#  Install Python Dependencies
 
 ```bash
 pip install --upgrade pip
@@ -79,7 +79,7 @@ pip install -r requirements.txt
 
 ---
 
-# 🐳 Install Docker Desktop
+#  Install Docker Desktop
 
 Download Docker Desktop from:
 
@@ -95,7 +95,7 @@ docker compose version
 
 ---
 
-# 🗄 Start PostgreSQL
+#  Start PostgreSQL
 
 Career Copilot uses PostgreSQL with pgvector.
 
@@ -115,7 +115,7 @@ You should see a PostgreSQL container running.
 
 ---
 
-# 🤖 Install Ollama
+#  Install Ollama
 
 Download Ollama from
 
@@ -129,7 +129,7 @@ ollama --version
 
 ---
 
-# 📥 Download AI Models
+#  Download AI Models
 
 Download the chat model.
 
@@ -161,7 +161,7 @@ nomic-embed-text
 
 ---
 
-# ⚙ Environment Variables
+#  Environment Variables
 
 Create a file named
 
@@ -195,7 +195,7 @@ OLLAMA_EMBEDDING_MODEL=nomic-embed-text
 
 ---
 
-# 🛠 Database Migration
+#  Database Migration
 
 Run Alembic migrations.
 
@@ -207,7 +207,7 @@ Verify tables were created.
 
 ---
 
-# 🚀 Start the Backend
+#  Start the Backend
 
 ```bash
 uvicorn app.main:app --reload
@@ -221,7 +221,7 @@ INFO: Application startup complete.
 
 ---
 
-# 📖 Swagger Documentation
+#  Swagger Documentation
 
 Open your browser.
 
@@ -233,7 +233,7 @@ Swagger provides an interactive interface for testing every API endpoint.
 
 ---
 
-# ✅ Verify Installation
+#  Verify Installation
 
 The following endpoints should be accessible.
 
@@ -261,7 +261,7 @@ GET /db-check
 
 ---
 
-# 🧪 First API Test
+#  First API Test
 
 Create a user.
 
@@ -291,7 +291,7 @@ You are now ready to use every protected endpoint.
 
 ---
 
-# 📂 Project Workflow
+#  Project Workflow
 
 Typical usage flow.
 
@@ -337,7 +337,7 @@ Chat with Career Copilot
 
 ---
 
-# 🔍 Troubleshooting
+#  Troubleshooting
 
 ## Docker is not running
 
@@ -415,7 +415,7 @@ uvicorn app.main:app --reload --port 8001
 
 ---
 
-# 🎉 Congratulations!
+#  Congratulations!
 
 Career Copilot is now running locally.
 
