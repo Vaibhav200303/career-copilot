@@ -1,4 +1,4 @@
-# 🏛️ System Design
+# System Design
 
 This document explains the engineering decisions behind Career Copilot.
 
@@ -10,7 +10,7 @@ Every architectural choice was made after considering scalability, maintainabili
 
 ---
 
-# 📑 Table of Contents
+#  Table of Contents
 
 * Design Goals
 * High-Level Design
@@ -25,7 +25,7 @@ Every architectural choice was made after considering scalability, maintainabili
 
 ---
 
-# 🎯 Design Goals
+#  Design Goals
 
 Career Copilot was designed with the following objectives:
 
@@ -42,7 +42,7 @@ The architecture intentionally favors simplicity without sacrificing scalability
 
 ---
 
-# 🌍 High-Level Design
+#  High-Level Design
 
 Career Copilot follows a layered architecture.
 
@@ -87,13 +87,13 @@ Career Copilot separates:
 
 Benefits
 
-✅ Easier testing
+Easier testing
 
-✅ Easier maintenance
+Easier maintenance
 
-✅ Better readability
+Better readability
 
-✅ Independent feature development
+Independent feature development
 
 ---
 
@@ -207,7 +207,7 @@ This avoids duplicated logic.
 
 ---
 
-# 🧩 Technology Selection
+#  Technology Selection
 
 Career Copilot intentionally uses a small but powerful technology stack.
 
@@ -431,10 +431,7 @@ The result is a backend platform that is easy to extend, simple to deploy, and c
 
 ---
 
-**Next Section:** AI system design, RAG internals, scalability analysis, bottlenecks, and production considerations.
----
-
-# 🤖 AI System Design
+# AI System Design
 
 Artificial Intelligence is the core capability of Career Copilot.
 
@@ -924,29 +921,29 @@ Potential enhancements include:
 
 Career Copilot demonstrates several modern backend engineering concepts.
 
-✅ Layered Architecture
+Layered Architecture
 
-✅ Service-Oriented Design
+Service-Oriented Design
 
-✅ Dependency Injection
+Dependency Injection
 
-✅ SQLAlchemy ORM
+SQLAlchemy ORM
 
-✅ Alembic Database Migrations
+Alembic Database Migrations
 
-✅ JWT Authentication
+JWT Authentication
 
-✅ Retrieval-Augmented Generation
+Retrieval-Augmented Generation
 
-✅ Vector Search
+Vector Search
 
-✅ Prompt Engineering
+Prompt Engineering
 
-✅ Local LLM Integration
+Local LLM Integration
 
-✅ Persistent Conversation Memory
+Persistent Conversation Memory
 
-✅ Modular Feature Design
+Modular Feature Design
 
 ---
 
