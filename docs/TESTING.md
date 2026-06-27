@@ -1,4 +1,4 @@
-# 🧪 Testing Guide
+#  Testing Guide
 
 This document demonstrates how to test every major feature of Career Copilot using the interactive Swagger UI.
 
@@ -18,7 +18,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# 📑 Table of Contents
+#  Table of Contents
 
 * Prerequisites
 * Authentication
@@ -36,15 +36,15 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# 🚀 Before You Begin
+#  Before You Begin
 
 Ensure the following services are running.
 
 | Service    | Status |
-| ---------- | ------ |
-| FastAPI    | ✅      |
-| PostgreSQL | ✅      |
-| Ollama     | ✅      |
+| ---------- | ------  |
+| FastAPI    |Done     |
+| PostgreSQL |Done     |
+| Ollama     |Done     |
 
 Verify the AI models.
 
@@ -111,7 +111,7 @@ Following this order ensures that every AI feature has sufficient context.
 
 ---
 
-# 🔐 Step 1 — Create User
+# Step 1 — Create User
 
 Endpoint
 
@@ -137,7 +137,7 @@ Expected Response
 
 ---
 
-# 🔑 Step 2 — Login
+# Step 2 — Login
 
 Endpoint
 
@@ -174,7 +174,7 @@ Bearer YOUR_TOKEN
 
 ---
 
-# 📄 Step 3 — Upload Resume
+# Step 3 — Upload Resume
 
 Endpoint
 
@@ -198,7 +198,7 @@ Verify
 
 ---
 
-# 💼 Step 4 — Create Job Description
+# Step 4 — Create Job Description
 
 Endpoint
 
@@ -223,7 +223,7 @@ Expected
 
 ---
 
-# 🤖 Step 5 — Generate Analysis
+# Step 5 — Generate Analysis
 
 Endpoint
 
@@ -263,7 +263,7 @@ Verify
 
 ---
 
-# 📚 Step 6 — Generate Roadmap
+#  Step 6 — Generate Roadmap
 
 Endpoint
 
@@ -290,7 +290,7 @@ Verify
 
 ---
 
-# 🎯 Step 7 — Generate Interview
+# Step 7 — Generate Interview
 
 Endpoint
 
@@ -318,7 +318,7 @@ Verify
 
 ---
 
-# 📝 Step 8 — Create Note
+# Step 8 — Create Note
 
 Endpoint
 
@@ -348,7 +348,7 @@ Verify
 
 ---
 
-# 💼 Step 9 — Create Interview Experience
+# Step 9 — Create Interview Experience
 
 Endpoint
 
@@ -387,7 +387,7 @@ Verify
 
 ---
 
-# 🧠 Step 10 — Chat with Career Copilot
+# Step 10 — Chat with Career Copilot
 
 Endpoint
 
@@ -431,7 +431,7 @@ Verify
 
 ---
 
-# 💬 Step 11 — Conversations
+# Step 11 — Conversations
 
 Get all
 
@@ -459,31 +459,31 @@ Verify
 
 ---
 
-# 🧪 End-to-End Verification
+# End-to-End Verification
 
 At this stage verify that:
 
-✅ User created
+User created
 
-✅ Resume uploaded
+Resume uploaded
 
-✅ Resume parsed
+Resume parsed
 
-✅ Job description stored
+Job description stored
 
-✅ Analysis generated
+Analysis generated
 
-✅ Roadmap generated
+Roadmap generated
 
-✅ Interview generated
+Interview generated
 
-✅ Notes indexed
+Notes indexed
 
-✅ Interview experiences indexed
+Interview experiences indexed
 
-✅ Career Copilot responds
+Career Copilot responds
 
-✅ Conversation memory works
+Conversation memory works
 
 ---
 
@@ -561,19 +561,19 @@ ollama list
 
 # Testing Checklist
 
-| Feature               | Status |
-| --------------------- | ------ |
-| Authentication        | ☐      |
-| Resume Upload         | ☐      |
-| Job Description       | ☐      |
-| Analysis              | ☐      |
-| Roadmap               | ☐      |
-| Interview             | ☐      |
-| Notes                 | ☐      |
-| Interview Experiences | ☐      |
-| Knowledge Base        | ☐      |
-| Career Copilot        | ☐      |
-| Conversations         | ☐      |
+| Feature               | Status|
+| --------------------- | ----- |
+| Authentication        |       |
+| Resume Upload         |       |
+| Job Description       |       |
+| Analysis              |       |
+| Roadmap               |       |
+| Interview             |       |
+| Notes                 |       |
+| Interview Experiences |       |
+| Knowledge Base        |       |
+| Career Copilot        |       |
+| Conversations         |       |
 
 Complete this checklist before deploying or publishing the project.
 
