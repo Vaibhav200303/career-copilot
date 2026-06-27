@@ -1,4 +1,4 @@
-# 🗺️ Development Roadmap
+#  Development Roadmap
 
 Career Copilot was developed incrementally through a series of milestones, with each version introducing a focused set of features.
 
@@ -6,7 +6,7 @@ This iterative approach ensured that every component was fully functional before
 
 ---
 
-# 📑 Table of Contents
+#  Table of Contents
 
 * Development Philosophy
 * Completed Milestones
@@ -16,7 +16,7 @@ This iterative approach ensured that every component was fully functional before
 
 ---
 
-# 🚀 Development Philosophy
+#  Development Philosophy
 
 Instead of building the entire application at once, Career Copilot was developed feature by feature.
 
@@ -32,7 +32,7 @@ Benefits of this approach include:
 
 ---
 
-# ✅ Completed Milestones
+#  Completed Milestones
 
 ---
 
@@ -310,7 +310,7 @@ Support multi-turn AI conversations.
 
 ---
 
-# 🎉 Current Capabilities
+#  Current Capabilities
 
 Career Copilot currently provides:
 
@@ -331,7 +331,7 @@ Career Copilot currently provides:
 
 ---
 
-# 🚧 Future Roadmap
+#  Future Roadmap
 
 The following improvements are planned.
 
@@ -385,7 +385,7 @@ The following improvements are planned.
 
 ---
 
-# 🌍 Long-Term Vision
+#  Long-Term Vision
 
 The long-term vision for Career Copilot is to evolve from a backend API into a comprehensive AI-powered career platform.
 
@@ -402,7 +402,7 @@ Future versions may integrate:
 
 ---
 
-# 📊 Project Statistics
+#  Project Statistics
 
 Current architecture includes:
 
@@ -419,7 +419,7 @@ Current architecture includes:
 
 ---
 
-# 🏁 Summary
+#  Summary
 
 Career Copilot has evolved from a simple authentication system into a modular AI-powered backend platform capable of delivering personalized career guidance.
 
