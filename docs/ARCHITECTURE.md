@@ -1,4 +1,4 @@
-# 🏗️ System Architecture
+#  System Architecture
 
 Career Copilot is designed using a modular, service-oriented backend architecture that separates business logic, API routing, persistence, AI services, and retrieval into independent layers.
 
@@ -15,7 +15,7 @@ Unlike traditional CRUD applications, Career Copilot combines conventional backe
 
 ---
 
-# 📑 Table of Contents
+#  Table of Contents
 
 * High-Level Architecture
 * Backend Architecture
@@ -36,7 +36,7 @@ Unlike traditional CRUD applications, Career Copilot combines conventional backe
 
 ---
 
-# 🌍 High-Level Architecture
+#  High-Level Architecture
 
 Career Copilot consists of five major layers.
 
@@ -71,7 +71,7 @@ H --> I
 
 ---
 
-# 🏛 Layer Responsibilities
+#  Layer Responsibilities
 
 ## API Layer
 
@@ -160,7 +160,7 @@ Technology
 
 ---
 
-# 📂 Backend Folder Structure
+#  Backend Folder Structure
 
 ```text
 app/
@@ -186,7 +186,7 @@ app/
 
 ---
 
-# 📁 Folder Responsibilities
+#  Folder Responsibilities
 
 ## core/
 
@@ -316,7 +316,7 @@ Examples
 
 ---
 
-# 🔄 Request Lifecycle
+#  Request Lifecycle
 
 Every request follows the same architecture.
 
@@ -346,7 +346,7 @@ Router-->>User: JSON
 
 ---
 
-# 🎯 Design Philosophy
+#  Design Philosophy
 
 Career Copilot follows the principle:
 
@@ -356,7 +356,7 @@ This separation keeps the codebase modular, testable, and easy to extend.
 
 ---
 
-# 🧩 Dependency Injection
+#  Dependency Injection
 
 FastAPI Dependency Injection is used extensively throughout the project.
 
@@ -392,7 +392,7 @@ This approach keeps endpoint implementations clean while avoiding repetitive aut
 
 ---
 
-# 🔒 Authentication Architecture
+#  Authentication Architecture
 
 Every protected endpoint requires a valid JWT access token.
 
@@ -418,7 +418,7 @@ If authentication fails, the request is rejected immediately with an HTTP 401 Un
 
 ---
 
-# 🛡️ Authorization Strategy
+#  Authorization Strategy
 
 Career Copilot enforces user-level resource ownership.
 
@@ -438,7 +438,7 @@ Before performing any operation, ownership is verified to prevent unauthorized a
 
 ---
 
-# 🔄 Common Request Flow
+#  Common Request Flow
 
 A typical authenticated request follows this sequence:
 
@@ -456,7 +456,7 @@ This consistent flow is used across the entire application, making the backend p
 The next section covers the complete **Resume Processing Pipeline**, including PDF upload, text extraction, OCR fallback, and how resume data enters the AI workflow.
 ---
 
-# 📄 Resume Processing Pipeline
+#  Resume Processing Pipeline
 
 The Resume Processing Pipeline is the entry point into Career Copilot's AI ecosystem.
 
@@ -641,15 +641,15 @@ every downstream AI feature reuses the stored text.
 
 Benefits
 
-✅ Faster AI requests
+Faster AI requests
 
-✅ Lower computational cost
+Lower computational cost
 
-✅ Cleaner architecture
+Cleaner architecture
 
 ---
 
-# 🤖 Resume Analysis Pipeline
+#  Resume Analysis Pipeline
 
 The Resume Analysis Pipeline compares a resume against a selected job description using a Large Language Model.
 
@@ -780,7 +780,7 @@ without generating another analysis.
 
 ---
 
-# 📚 Learning Roadmap Pipeline
+#  Learning Roadmap Pipeline
 
 The Learning Roadmap converts the AI analysis into an actionable study plan.
 
@@ -867,7 +867,7 @@ Knowledge Base
 
 ---
 
-# 🎯 Mock Interview Pipeline
+#Mock Interview Pipeline
 
 Interview generation follows a similar workflow.
 
@@ -981,15 +981,15 @@ Why persist AI outputs?
 
 Advantages
 
-✅ Faster responses
+Faster responses
 
-✅ Reduced AI calls
+Reduced AI calls
 
-✅ Lower inference cost
+Lower inference cost
 
-✅ Searchable history
+Searchable history
 
-✅ Better personalization
+Better personalization
 
 Instead of regenerating responses every time,
 
@@ -1000,7 +1000,7 @@ Career Copilot treats AI outputs as long-term knowledge.
 The next section explains the complete Knowledge Base architecture, semantic retrieval pipeline, vector embeddings, pgvector integration, and Retrieval-Augmented Generation (RAG), which form the core intelligence layer of Career Copilot.
 ---
 
-# 🧠 Knowledge Base Architecture
+#  Knowledge Base Architecture
 
 The Knowledge Base is the foundation of Career Copilot's Retrieval-Augmented Generation (RAG) system.
 
@@ -1038,12 +1038,12 @@ Career Copilot indexes information from multiple sources.
 
 | Source                | Indexed |
 | --------------------- | ------- |
-| Resume                | ✅       |
-| Job Descriptions      | ✅       |
-| Resume Analysis       | ✅       |
-| Learning Roadmaps     | ✅       |
-| Personal Notes        | ✅       |
-| Interview Experiences | ✅       |
+| Resume                |Done     |
+| Job Descriptions      |Done     |
+| Resume Analysis       |Done     |
+| Learning Roadmaps     |Done     |
+| Personal Notes        |Done     |
+| Interview Experiences |Done     |
 
 Every source contributes to the overall understanding of the user.
 
@@ -1344,15 +1344,15 @@ Compared to traditional prompting,
 
 Retrieval-Augmented Generation offers:
 
-✅ Personalized responses
+Personalized responses
 
-✅ Lower hallucination rate
+Lower hallucination rate
 
-✅ Faster inference
+Faster inference
 
-✅ Better factual grounding
+Better factual grounding
 
-✅ User-specific knowledge
+User-specific knowledge
 
 ---
 
@@ -1542,10 +1542,9 @@ The Knowledge Base, pgvector integration, and persistent conversation memory for
 
 ---
 
-➡️ Next: **Database Architecture, System Design Decisions, Scalability, and Future Architecture**
----
 
-# 🗄️ Database Architecture
+
+#  Database Architecture
 
 Career Copilot uses **PostgreSQL** as its primary database.
 
@@ -1714,17 +1713,17 @@ Several databases were considered during development.
 
 Advantages
 
-✅ Mature relational database
+Mature relational database
 
-✅ ACID transactions
+ACID transactions
 
-✅ Excellent SQL support
+Excellent SQL support
 
-✅ JSONB support
+JSONB support
 
-✅ pgvector extension
+pgvector extension
 
-✅ Large ecosystem
+Large ecosystem
 
 ---
 
@@ -1756,15 +1755,15 @@ Career Copilot uses pgvector.
 
 Advantages
 
-✅ Simple setup
+Simple setup
 
-✅ One database
+One database
 
-✅ Easier deployment
+Easier deployment
 
-✅ No additional infrastructure
+No additional infrastructure
 
-✅ SQL + Semantic Search
+SQL + Semantic Search
 
 ---
 
@@ -2115,29 +2114,29 @@ Possible future modules include
 
 Career Copilot demonstrates several modern backend engineering concepts.
 
-✅ Layered Architecture
+Layered Architecture
 
-✅ Service-Oriented Design
+Service-Oriented Design
 
-✅ JWT Authentication
+JWT Authentication
 
-✅ SQLAlchemy ORM
+SQLAlchemy ORM
 
-✅ Alembic Migrations
+Alembic Migrations
 
-✅ Modular FastAPI Routers
+Modular FastAPI Routers
 
-✅ Retrieval-Augmented Generation (RAG)
+Retrieval-Augmented Generation (RAG)
 
-✅ Vector Search with pgvector
+Vector Search with pgvector
 
-✅ Local LLM Integration
+Local LLM Integration
 
-✅ Persistent Conversation Memory
+Persistent Conversation Memory
 
-✅ Automatic Knowledge Base Construction
+Automatic Knowledge Base Construction
 
-✅ Semantic Retrieval
+Semantic Retrieval
 
 ---
 
