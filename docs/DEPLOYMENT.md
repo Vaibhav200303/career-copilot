@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide
+#Deployment Guide
 
 This document explains how to deploy and run **Career Copilot** in a local development environment.
 
@@ -6,7 +6,7 @@ The project is designed to be simple to set up while following production-orient
 
 ---
 
-# 📑 Table of Contents
+#Table of Contents
 
 * Deployment Overview
 * Prerequisites
@@ -21,7 +21,7 @@ The project is designed to be simple to set up while following production-orient
 
 ---
 
-# 🌍 Deployment Overview
+#Deployment Overview
 
 Career Copilot consists of four primary components.
 
@@ -64,7 +64,7 @@ Each component has a clearly defined responsibility.
 
 ---
 
-# 💻 System Requirements
+#System Requirements
 
 Before deploying Career Copilot, ensure the following software is installed.
 
@@ -77,7 +77,7 @@ Before deploying Career Copilot, ensure the following software is installed.
 
 ---
 
-# 📥 Clone Repository
+#Clone Repository
 
 ```bash
 git clone https://github.com/<your-username>/career-copilot.git
@@ -87,7 +87,7 @@ cd career-copilot
 
 ---
 
-# 🐍 Create Virtual Environment
+# Create Virtual Environment
 
 ### Windows
 
@@ -107,7 +107,7 @@ source .venv/bin/activate
 
 ---
 
-# 📦 Install Dependencies
+#Install Dependencies
 
 ```bash
 pip install --upgrade pip
@@ -117,7 +117,7 @@ pip install -r requirements.txt
 
 ---
 
-# ⚙ Configure Environment Variables
+#Configure Environment Variables
 
 Create a `.env` file in the project root.
 
@@ -141,7 +141,7 @@ OLLAMA_EMBEDDING_MODEL=nomic-embed-text
 
 ---
 
-# 🐳 Start PostgreSQL
+#Start PostgreSQL
 
 Career Copilot uses Docker to run PostgreSQL.
 
@@ -159,7 +159,7 @@ Expected output includes a running PostgreSQL container.
 
 ---
 
-# 🗄 Database Migration
+#Database Migration
 
 Initialize the database schema.
 
@@ -171,7 +171,7 @@ Alembic automatically creates every required table.
 
 ---
 
-# 🤖 Install Ollama
+# Install Ollama
 
 Download Ollama from
 
@@ -185,7 +185,7 @@ ollama --version
 
 ---
 
-# 📥 Download AI Models
+#Download AI Models
 
 Download the chat model.
 
@@ -212,7 +212,7 @@ Expected models
 
 ---
 
-# ▶ Run the Backend
+#Run the Backend
 
 Start FastAPI.
 
@@ -234,7 +234,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# ✅ Verify Deployment
+#Verify Deployment
 
 Test the following endpoints.
 
@@ -330,15 +330,15 @@ No code changes are required.
 
 Before using the application verify
 
-✅ PostgreSQL is running
+PostgreSQL is running
 
-✅ Ollama is running
+Ollama is running
 
-✅ AI models are downloaded
+AI models are downloaded
 
-✅ Database migrations applied
+Database migrations applied
 
-✅ FastAPI server started
+FastAPI server started
 
 ---
 
